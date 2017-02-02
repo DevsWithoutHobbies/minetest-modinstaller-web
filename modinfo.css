@@ -3,6 +3,15 @@
 }
 
 #mod_img {
-    width: 50%;
+    width: 75%;
     margin-bottom: 20px;
+}
+
+.mod_header {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100px;
+    margin-top: 80px;
+    width: 100%;
 }
