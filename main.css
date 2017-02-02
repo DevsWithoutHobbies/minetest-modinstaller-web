@@ -27,7 +27,7 @@ h1 {
 }
 
 .menu_bar {
-  height: 150px;
+  height: 200px;
   width: 100%;
   background-color: #33cc33;
   padding: 0;
@@ -66,7 +66,7 @@ a {
   margin: 0;
   background-color: #EEEEEE;
   font-family: "Segoe UI", Arial, sans-serif;
-  font-size: 25px;
+  font-size: 23px;
   color: #222;
   box-sizing: border-box;
 }
@@ -108,6 +108,7 @@ textarea {
 
 .second {
   width: 80%;
+  font-size: 20px;
 }
 
 .no-robot {
