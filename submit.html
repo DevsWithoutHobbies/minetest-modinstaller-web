@@ -53,8 +53,9 @@
         var imagelink = document.getElementById('imagelink').value;
         var ziplink = document.getElementById('ziplink').value;
         var other = document.getElementById('other').value;
+        var pack = document.getElementById('package').value;
 
-        window.location = 'http://mine-modinstaller.esy.es/send.php?subject=Modinstaller ' + title + '&message=Hello dear modinstaller admin.|There is  new request to add a mod to the list:'
+        window.location = 'http://mine-modinstaller.esy.es/send.php?subject=Modinstaller ' + title + '&message=Hello dear modinstaller admin.|There is a new request to add a mod to the list:'
         + '||Author: ' + name
         + '|E-Mail: ' + email
         + '|Title: ' + title
@@ -62,10 +63,19 @@
         + '|Link to image: ' + imagelink
         + '|Link to zip: ' + ziplink
         + '|Other: ' + other
+        + '|Package: ' + pack
         + '||Here is the line that will be added to the index list in the Github repository:|'
         + title + ':::' + ziplink + ':::' + name + ':::' + imagelink + ':::' + description
         + '||Here is a link to this file: https://github.com/DevsWithoutHobbies/minetest-modinstaller-data/blob/master/index'
         + '||If everything seems fine, you can add it.||Sincerly yours|TOTALLY NOT A BOT';
+      }
+    }
+
+    function robot() {
+      if (document.getElementById('robot-check').checked) {
+        document.getElementById('robot-check').checksum='stfh1tr8fh6srtf56hnbrtsfxhb1rtx81fh5tr1xf6gh15xnrtf51hgnft'
+      } else {
+        document.getElementById('robot-check').checksum='k3jabsd2asd3uibash3dva9skjhd5uzf6gcvkehj1wdhqwz7qvusjdh8b'
       }
     }
   </script>
@@ -113,9 +123,13 @@
         <td class="second"><textarea type="text" id="other"></textarea></td>
       </tr>
       <tr>
+        <td class="first">Package name (optional)</td>
+        <td class="second"><input type="text" id="package"/></td>
+      </tr>
+      <tr>
         <td class="first"></td>
         <td class="second">
-          <div class="no-robot" onclick="document.getElementById('robot-check').checksum='stfh1tr8fh6srtf56hnbrtsfxhb1rtx81fh5tr1xf6gh15xnrtf51hgnft'">
+          <div class="no-robot" onclick="robot();">
             <input type="checkbox" class="robot-check" id="robot-check" checksum="k3jabsd2asd3uibash3dva9skjhd5uzf6gcvkehj1wdhqwz7qvusjdh8b">
             <label for="robot-check">
               <box></box>
