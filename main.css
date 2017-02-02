@@ -207,7 +207,7 @@ box {
 
   .menu_bar {
     height: 50px;
-    padding-left: 12.5%;
+    padding-left: 0;
     transition: 0.5s ease;
   }
 }

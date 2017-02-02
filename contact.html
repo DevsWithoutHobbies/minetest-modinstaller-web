@@ -1,0 +1,90 @@
+<html>
+<head>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  <link rel="stylesheet" href="main.css"/>
+
+  <script>
+    function sendMessage() {
+      var send = true;
+      if (document.getElementById('email').value === '') {
+        send = false;
+        document.getElementById('email').style.borderColor = '#FF4444';
+      } else {
+        document.getElementById('email').style.borderColor = '#000000';
+      }
+      if (document.getElementById('message').value === '') {
+        send = false;
+        document.getElementById('message').style.borderColor = '#FF4444';
+      } else {
+        document.getElementById('message').style.borderColor = '#000000';
+      }
+      if (document.getElementById('robot-check').checksum != 'stfh1tr8fh6srtf56hnbrtsfxhb1rtx81fh5tr1xf6gh15xnrtf51hgnft') {
+        send = false;
+      }
+      if (send) {
+        var email = document.getElementById('email').value;
+        var message = document.getElementById('message').value;
+
+        window.location = 'http://mine-modinstaller.esy.es/send.php?subject=New Modinstaller message&message=Hello dear modinstaller admin.|The following message was sent to you by ' + email + ':'
+        + '||' + message
+        + '||Sincerly yours|TOTALLY NOT A BOT';
+      }
+    }
+
+    function robot() {
+      if (document.getElementById('robot-check').checked) {
+        document.getElementById('robot-check').checksum='stfh1tr8fh6srtf56hnbrtsfxhb1rtx81fh5tr1xf6gh15xnrtf51hgnft'
+      } else {
+        document.getElementById('robot-check').checksum='k3jabsd2asd3uibash3dva9skjhd5uzf6gcvkehj1wdhqwz7qvusjdh8b'
+      }
+    }
+  </script>
+
+</head>
+<body>
+  <div class="header">
+    <h1>Minetest Modinstaller</h1>
+  </div>
+  <div class="menu_bar">
+    <a href="index.html"><div class="menu_item">Home</div></a>
+    <a href="download.html"><div class="menu_item">Download</div></a>
+    <a href="submit.html"><div class="menu_item">Submit Mod</div></a>
+    <a href="contact.html"><div class="menu_item">Contact</div></a>
+  </div>
+
+  <div class="content">
+    <h2>Send a message</h2>
+    <table>
+      <tr>
+        <td class="first">E-Mail</td>
+        <td class="second"><input type="mail" id="email"/></td>
+      </tr>
+      <tr>
+        <td class="first">Message</td>
+        <td class="second"><textarea type="text" id="message"></textarea></td>
+      </tr>
+      <tr>
+        <td class="first"></td>
+        <td class="second">
+          <div class="no-robot" onclick="robot();">
+            <input type="checkbox" class="robot-check" id="robot-check" checksum="k3jabsd2asd3uibash3dva9skjhd5uzf6gcvkehj1wdhqwz7qvusjdh8b">
+            <label for="robot-check">
+              <box></box>
+              <span class="checkmark">
+                <div class="checkmark_stem"></div>
+                <div class="checkmark_kick"></div>
+              </span>
+              <a>I am not a robot</a>
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td/>
+        <td><input type="submit" value="Send" onclick="sendMessage();"/></td>
+      </tr>
+    </table>
+
+  </div>
+</body>
+</html>
