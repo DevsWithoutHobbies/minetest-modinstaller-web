@@ -1,0 +1,214 @@
+html {
+  width: 100%;
+}
+
+body {
+  background-color: #FAFAFA;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  color: #33cc33;
+  font-size: 70px;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.header {
+  position: relative;
+  top: -70px;
+  left: 0;
+  height: 100px;
+  margin-top: 80px;
+  width: 100%;
+  transition: 0.5s ease;
+}
+
+.menu_bar {
+  height: 150px;
+  width: 100%;
+  background-color: #33cc33;
+  padding: 0;
+  margin: 0;
+  transition: 0.5s ease;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.menu_item {
+  width: 100%;
+  float: top;
+  height: 35px;
+  color: white;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 20px;
+  padding-top: 15px;
+  text-align: center;
+  transition: 0.5s ease;
+}
+
+.menu_item:hover {
+  background-color: #70db70;
+  transition: 0.5s ease;
+}
+
+.content {
+  width: 90%;
+  position: relative;
+  left: 5%;
+  top: 50px;
+  padding: 40px;
+  margin: 0;
+  background-color: #EEEEEE;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 25px;
+  color: #222;
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+}
+
+tr {
+  width: 100%;
+}
+
+.first {
+  width: 20%;
+  text-align: right;
+  font-size: 20px;
+  padding: 10px;
+}
+
+input {
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  height: 30px;
+  width: 100%;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+textarea {
+  border-radius: 10px;
+  border-width: 1px;
+  height: 100px;
+  width: 100%;
+  font-size: 20px;
+  padding-left: 10px;
+  max-width: 800px;
+}
+
+.second {
+  width: 80%;
+}
+
+.no-robot {
+  background-color: white;
+  border-radius: 2px;
+  border-color: #999;
+  border-style: solid;
+  border-width: 1px;
+  width: 250px;
+  height: 44px;
+  padding: 10px;
+  text-align: left;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  color: #333;
+}
+
+input[type="checkbox"] + label a {
+  position: relative;;
+  left: 10px;
+}
+
+input[type="checkbox"] + label span {
+  display: none;
+}
+
+input[type="checkbox"] + label box {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label a {
+  left: -38px;
+}
+
+input[type="checkbox"]:checked + label span {
+  display: inline-block;
+  position: relative;
+  left: -49px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label box {
+
+}
+
+box {
+  position: relative;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #555;
+}
+
+.checkmark {
+  width: 44px;
+  height: 44px;
+  transform: rotate(45deg);
+}
+
+.checkmark_stem {
+  position: absolute;
+  width: 6px;
+  height: 18px;
+  background-color: #3e3;
+  left: 22px;
+  top: 12px;
+}
+
+.checkmark_kick {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color:#3e3;
+  left: 16px;
+  top: 24px;
+}
+
+@media only screen and (min-width: 715px) {
+  .header {
+    top: 0;
+    transition: 0.5s ease;
+  }
+
+  .menu_item {
+    width: 25%;
+    float: left;
+    transition: 0.5s ease;
+  }
+
+  .menu_bar {
+    height: 50px;
+    padding-left: 12.5%;
+    transition: 0.5s ease;
+  }
+}
