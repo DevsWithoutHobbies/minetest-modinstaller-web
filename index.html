@@ -1,8 +1,34 @@
 <html>
 <head>
+  <title>Home</title>
   <link rel="stylesheet" href="main.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="notify.js"></script>
+  <script>
+  function getQueryParams(qs) {
+      qs = qs.split('+').join(' ');
+
+      var params = {},
+          tokens,
+          re = /[?&]?([^=]+)=([^&]*)/g;
+
+      while (tokens = re.exec(qs)) {
+          params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+      }
+
+      return params;
+  }
+  function load() {
+    var success = getQueryParams(document.location.search).success;
+    if (success == 'true') {
+      $.notify('Youre request was sent successfully', 'success');
+    } else if (success == 'false') {
+      $.notify('There was an error with your request', 'warn');
+    }
+  }
+  </script>
 </head>
-<body>
+<body onload="load();">
   <div class="header">
     <h1>Minetest Modinstaller</h1>
   </div>
@@ -16,6 +42,7 @@
   <div class="content">
     The Minetest Modinstaller is a tool, that allows you to easily install,
     manage and update all your favorite Minetest mods.
+    <center><img src="gnp.png" width="100%"/></center>
   </div>
 </body>
 </html>

@@ -1,6 +1,5 @@
 <html>
 <head>
-    <link rel="stylesheet" href="main.css"/>
     <link rel="stylesheet" href="modinfo.css"/>
 
     <script>
@@ -25,26 +24,26 @@
             // 3: image url
             // 4: description
             document.getElementById("name").innerHTML = modData[0];
-            document.getElementById("author").innerHTML = modData[2];
-            if (modData[3] !== "") {
-                document.getElementById("mod_img").src = modData[3];
+            document.getElementById("author").innerHTML = modData[4];
+            if (modData[5] !== "") {
+                document.getElementById("mod_img").src = modData[5];
             }
-            document.getElementById("description").innerHTML = modData[4];
+            document.getElementById("description").innerHTML = modData[6];
         }
     </script>
 </head>
 <body onload="showContent();">
 <div class="mod_header">
-    <h1 id="name">Minetest Modinstaller</h1>
+    <h1 id="name">Loading...</h1>
 </div>
 
-<div class="content">
+<div class="mod_content">
     <div style="text-align: center;">
-        <img id="mod_img" src="" />
-        <div id="description"></div>
+        <img id="mod_img" src="">
+        <div id="description">Loading...</div>
         <br>
         <div class="mod_author">
-            Author: <span id="author"></span>
+            Author: <span id="author">Loading...</span>
         </div>
     </div>
 </div>

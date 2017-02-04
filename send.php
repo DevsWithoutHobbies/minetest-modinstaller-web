@@ -5,9 +5,9 @@
         ini_set('display_errors', 'On');
         set_error_handler("var_dump");
 
-        $from = 'info@mine-modinstaller.esy.es';
+        $from = 'devswithouthobbies@gmail.com';
 
-        $to = 'jonaspeeters.de@gmail.com';
+        $to = 'devswithouthobbies@gmail.com';
 
         $subject = $_GET['subject'];
 
@@ -16,11 +16,11 @@
         $headers = 'From:' . $from;
 
         if(mail($to, $subject, $message, $headers))
-            echo('t');
+            echo "<meta http-equiv='refresh' content='0; URL=index.html?success=true'>";
         else
-            echo('f');
+            echo "<meta http-equiv='refresh' content='0; URL=index.html?success=false'>";
 
-        echo "<meta http-equiv='refresh' content='0; URL=index.html?success=true'>";
+
     ?>
 </head>
 </html>
