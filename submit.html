@@ -1,8 +1,9 @@
 <html>
 <head>
-  <script src='https://www.google.com/recaptcha/api.js'></script>
   <link rel="stylesheet" href="main.css"/>
-
+  <link rel="stylesheet" href="form.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="notify.js"></script>
   <script>
     function sendMessage() {
       var send = true;
@@ -42,6 +43,12 @@
       } else {
         document.getElementById('ziplink').style.borderColor = '#000000';
       }
+      if (document.getElementById('folder').value === '') {
+        send = false;
+        document.getElementById('folder').style.borderColor = '#FF4444';
+      } else {
+        document.getElementById('folder').style.borderColor = '#000000';
+      }
       if (document.getElementById('robot-check').checksum != 'stfh1tr8fh6srtf56hnbrtsfxhb1rtx81fh5tr1xf6gh15xnrtf51hgnft') {
         send = false;
       }
@@ -52,6 +59,11 @@
         var description = document.getElementById('description').value;
         var imagelink = document.getElementById('imagelink').value;
         var ziplink = document.getElementById('ziplink').value;
+        var folder = document.getElementById('folder').value;
+        var library = '0';
+        if (document.getElementById('library').checked) {
+          library = '1';
+        }
         var other = document.getElementById('other').value;
         var pack = document.getElementById('package').value;
 
@@ -62,10 +74,12 @@
         + '|Description: ' + description
         + '|Link to image: ' + imagelink
         + '|Link to zip: ' + ziplink
+        + '|Foldername in zip: ' + folder
+        + '|As library: ' + library
         + '|Other: ' + other
         + '|Package: ' + pack
         + '||Here is the line that will be added to the index list in the Github repository:|'
-        + title + ':::' + ziplink + ':::' + name + ':::' + imagelink + ':::' + description
+        + title + ':::' + ziplink + ':::' + folder + ':::' + library + ':::' + name + ':::' + imagelink + ':::' + description
         + '||Here is a link to this file: https://github.com/DevsWithoutHobbies/minetest-modinstaller-data/blob/master/index'
         + '||If everything seems fine, you can add it.||Sincerly yours|TOTALLY NOT A BOT';
       }
@@ -97,35 +111,53 @@
     <table class="form">
       <tr>
         <td class="first">Author/-s</td>
-        <td class="second"><input type="text" id="name"/></td>
+        <td class="second"><input type="text" id="name" placeholder="Comma separated list of names"></td>
       </tr>
       <tr>
         <td class="first">E-Mail (Not public)</td>
-        <td class="second"><input type="mail" id="email"/></td>
+        <td class="second"><input type="mail" id="email" placeholder="Contact e-mail"/></td>
       </tr>
       <tr>
         <td class="first">Mod title</td>
-        <td class="second"><input type="text" id="title"/></td>
+        <td class="second"><input type="text" id="title" placeholder="Will be the name in the list in the modinstaller"/></td>
       </tr>
       <tr>
         <td class="first">Description</td>
-        <td class="second"><textarea type="text" id="description"></textarea></td>
+        <td class="second"><textarea type="text" id="description" placeholder="Describe your mod as good as possible and as short as possible"></textarea></td>
       </tr>
       <tr>
         <td class="first">Link to image</td>
-        <td class="second"><input type="url" id="imagelink"/></td>
+        <td class="second"><input type="url" id="imagelink" placeholder="Image that depicts your mod well"/></td>
       </tr>
       <tr>
         <td class="first">Link to .zip</td>
-        <td class="second"><input type="url" id="ziplink"/></td>
+        <td class="second"><input type="url" id="ziplink" placeholder="URL to latest stable version"/></td>
+      </tr>
+      <tr>
+        <td class="first">Foldername in zip</td>
+        <td class="second"><input type="text" id="folder" placeholder="Relative path in the zip file"/></td>
+      </tr>
+      <tr>
+        <td class="first">As library</td>
+        <td class="second">
+          <input type="checkbox" id="library"/>
+          <label for="library">
+            <span class="checkmark">
+              <div class="checkmark_stem"></div>
+              <div class="checkmark_kick"></div>
+            </span>
+            <box></box>
+            <a>Won't be show in list. Will only be installed as dependency.</a>
+          </label>
+        </td>
       </tr>
       <tr>
         <td class="first">Other information (optional)<br>(Not public)</td>
-        <td class="second"><textarea type="text" id="other"></textarea></td>
+        <td class="second"><textarea type="text" id="other" placeholder="Private message to the modinstaller admins"></textarea></td>
       </tr>
       <tr>
         <td class="first">Package name (optional)</td>
-        <td class="second"><input type="text" id="package"/></td>
+        <td class="second"><input type="text" id="package" placeholder="Leave blank for simple mod"></td>
       </tr>
       <tr>
         <td class="first"></td>
@@ -133,12 +165,12 @@
           <div class="no-robot" onclick="robot();">
             <input type="checkbox" class="robot-check" id="robot-check" checksum="k3jabsd2asd3uibash3dva9skjhd5uzf6gcvkehj1wdhqwz7qvusjdh8b">
             <label for="robot-check">
-              <box></box>
               <span class="checkmark">
                 <div class="checkmark_stem"></div>
                 <div class="checkmark_kick"></div>
               </span>
-              <a>I am not a robot</a>
+              <box></box>
+              <a>I'm not a robot</a>
             </label>
           </div>
         </td>
