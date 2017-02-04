@@ -7,13 +7,19 @@
     margin-bottom: 20px;
 }
 
+h1 {
+  text-align: center;
+  color: #33cc33;
+  font-size: 5vw;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
 .mod_header {
-    position: relative;
-    top: 0;
-    left: 0;
-    height: 100px;
-    margin-top: 20px;
-    width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-top: 20px;
+  width: 100%;
 }
 
 .mod_content {
